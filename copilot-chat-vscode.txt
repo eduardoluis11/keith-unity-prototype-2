@@ -1,0 +1,120 @@
+@workspace /fix I'm getting this warning for 2 Game Objects in the Hieerarchy window of my Unity project for Unity 2022: "Failed to create agent because there is no valid NavMesh". How do I fix this error message?
+
+
+The warning "Failed to create agent because there is no valid NavMesh" indicates that the NavMeshAgent component on your GameObjects cannot find a valid NavMesh to navigate on. To fix this, you need to bake a NavMesh for your scene. Here are the steps to do this:
+
+Open the Navigation Window:
+
+Go to Window > AI > Navigation.
+Mark Objects as Navigation Static:
+
+Select the GameObjects that should be part of the NavMesh (e.g., floors, terrains).
+In the Inspector, check the Navigation Static checkbox.
+Bake the NavMesh:
+
+In the Navigation window, go to the Bake tab.
+Adjust the baking settings as needed (e.g., agent radius, height, etc.).
+Click the Bake button.
+Verify NavMesh:
+
+After baking, you should see a blue overlay on the surfaces where the NavMesh has been created.
+Ensure that the NavMesh covers all areas where your NavMeshAgents need to navigate.
+Check NavMeshAgent Components:
+
+Ensure that your GameObjects with NavMeshAgent components are placed on the baked NavMesh.
+Here is a step-by-step pseudocode to guide you through the process:
+
+Open Navigation window.
+Select GameObjects to be included in NavMesh.
+Mark them as Navigation Static.
+Adjust baking settings.
+Bake the NavMesh.
+Verify the NavMesh coverage.
+Ensure NavMeshAgents are on the NavMesh.
+By following these steps, you should be able to resolve the warning and enable your NavMeshAgents to navigate properly.
+
+============================================================================
+
+That's the thing: Unity 2022 doesn't have any baking settings by default. How do I configure the baking settings in Unity 2022?
+
+
+In Unity 2022, the process for configuring and baking NavMesh has been integrated into the new Navigation system. Here’s how you can configure the baking settings and bake a NavMesh:
+
+Open the Navigation Window:
+
+Go to Window > AI > Navigation.
+Mark Objects as Navigation Static:
+
+Select the GameObjects that should be part of the NavMesh (e.g., floors, terrains).
+In the Inspector, check the Navigation Static checkbox.
+Configure Baking Settings:
+
+In the Navigation window, go to the Bake tab.
+Here you can adjust various settings such as:
+Agent Radius: The radius of the agent.
+Agent Height: The height of the agent.
+Max Slope: The maximum slope the agent can walk up.
+Step Height: The height of steps the agent can climb.
+Min Region Area: The minimum area that a region must have to be considered walkable.
+Manual Voxel Size: If you want to manually adjust the voxel size.
+Bake the NavMesh:
+
+After configuring the settings, click the Bake button to generate the NavMesh.
+Verify NavMesh:
+
+After baking, you should see a blue overlay on the surfaces where the NavMesh has been created.
+Ensure that the NavMesh covers all areas where your NavMeshAgents need to navigate.
+Here is a step-by-step pseudocode to guide you through the process:
+
+Open Navigation window.
+Select GameObjects to be included in NavMesh.
+Mark them as Navigation Static.
+Adjust baking settings.
+Bake the NavMesh.
+Verify the NavMesh coverage.
+Ensure NavMeshAgents are on the NavMesh.
+By following these steps, you should be able to configure the baking settings and bake a NavMesh in Unity 2022.
+
+==========================================================================================
+
+That's what I'm trying to tell you: there's no "bake" tab in Unity 2022 for the navigation tab. So, how do I bake my nav mesh in Unity 2022?
+
+
+In Unity 2022, the process for baking a NavMesh has been moved to the new Navigation system, which uses the NavMeshSurface component. Here’s how you can bake a NavMesh using this new system:
+
+Add NavMeshSurface Component:
+
+Create an empty GameObject in your scene (e.g., name it "NavMeshSurface").
+Select this GameObject and in the Inspector, click Add Component.
+Search for and add the NavMeshSurface component.
+Configure NavMeshSurface:
+
+In the Inspector, configure the NavMeshSurface settings as needed:
+Agent Type: Select the type of agent for which you are baking the NavMesh.
+Include Layers: Select the layers that should be included in the NavMesh.
+Use Geometry: Choose whether to use Render Meshes, Physics Colliders, or both.
+Override Voxel Size: Optionally, override the default voxel size.
+Override Tile Size: Optionally, override the default tile size.
+Mark Objects as Navigation Static:
+
+Select the GameObjects that should be part of the NavMesh (e.g., floors, terrains).
+In the Inspector, check the Navigation Static checkbox.
+Bake the NavMesh:
+
+With the NavMeshSurface GameObject selected, click the Bake button in the NavMeshSurface component in the Inspector.
+Verify NavMesh:
+
+After baking, you should see a blue overlay on the surfaces where the NavMesh has been created.
+Ensure that the NavMesh covers all areas where your NavMeshAgents need to navigate.
+Here is a step-by-step pseudocode to guide you through the process:
+
+Create an empty GameObject and name it "NavMeshSurface".
+Add the NavMeshSurface component to this GameObject.
+Configure the NavMeshSurface settings.
+Select GameObjects to be included in NavMesh and mark them as Navigation Static.
+Bake the NavMesh using the Bake button in the NavMeshSurface component.
+Verify the NavMesh coverage.
+Ensure NavMeshAgents are on the NavMesh.
+By following these steps, you should be able to bake a NavMesh in Unity 2022 using the new Navigation system.
+
+======================================================
