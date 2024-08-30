@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 /* This script will let the player move (as in moving from 1 point to the other).
 
-Source of most of this code: Brackeys from https://youtu.be/9tePzyL6dgc?si=rswsagD6YwbvYRs2 .
+Source of most of this code: Brackeys from https://youtu.be/9tePzyL6dgc?si=rswsagD6YwbvYRs2 , https://youtu.be/9tePzyL6dgc?si=zovAfZBoF-MPOO_9
 */
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -37,11 +37,15 @@ public class PlayerMotor : MonoBehaviour
 
     public void FollowTarget(Interactable newTarget)
     {
+        agent.stoppingDistance = newTarget.radius * .8f;
+        
         target = newTarget.transform;
     }
 
     public void StopFollowingTarget()
     {
+        agent.stoppingDistance = 0f;
+        
         target = null;
     }
 }

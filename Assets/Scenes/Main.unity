@@ -894,8 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26cf80461763284bb71f2cc6d002936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2
-  interactionTransform: {fileID: 0}
+  radius: 3
 --- !u!1 &1767785630
 GameObject:
   m_ObjectHideFlags: 0
