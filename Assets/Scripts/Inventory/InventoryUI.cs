@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
 {
 
     public Transform itemsParent;
+    public GameObject inventoryUI;
     
     Inventory inventory;
 
@@ -26,7 +27,10 @@ public class InventoryUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Inventory"))
+        {
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
+        }
     }
 
     void UpdateUI()

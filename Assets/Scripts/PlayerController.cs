@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 
 /* This script will let the player move.
@@ -28,6 +27,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
 
         // If we press left mouse
         if (Input.GetMouseButtonDown(0))
