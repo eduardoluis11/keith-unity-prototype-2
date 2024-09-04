@@ -24,6 +24,10 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool isDefaultItem = false;
 
+    // // This is a "global" variable that will store a generic cube that I will render at (1000, 1000, 1002) when I click on an item in my inventory.
+    // // I will use this global variable to also rotate the cube while dragging the mouse.
+    // private Transform cube;
+
     public virtual void Use ()
     {
         // Use the item
@@ -43,6 +47,7 @@ public class Item : ScriptableObject
 
         // This will create a generic cube at the position (1000, 1000, 1002) when I click on an item in my inventory.
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        // cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(1000, 1000, 1002);
         // End of the code to create a generic cube at the position (1000, 1000, 1002).
 

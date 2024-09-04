@@ -22,19 +22,20 @@ public class Item3DViewer : MonoBehaviour, IDragHandler
     {
         Debug.Log("OnDrag");
 
+        // This is what's going to rotate the 3D model in the 2nd Canvas. The 3D model should be a prefab with this script attached to it.
         // itemPrefab.eulerAngles = new Vector3(
         //     itemPrefab.eulerAngles.x + (eventData.delta.y * 0.1f),
         //     itemPrefab.eulerAngles.y - (eventData.delta.x * 0.1f),
         //     0
         // );
 
-        // // Rotates whatever Game Object has this script attached (like the 2D Canvas).
-        // // This rotates the 2nd Canvas, SO I NEED TO COMMENT THIS OUT TO ELIMINATE THIS SNIPPET TO PREVENT THAT BUG.
-        // if (eventData.button == PointerEventData.InputButton.Left)
-        // {
-        //     transform.Rotate(Vector3.up, -eventData.delta.x, Space.World);
-        //     transform.Rotate(Vector3.right, eventData.delta.y, Space.World);
-        // }
+        //  // Rotates whatever Canvas has this script attached (like the 2D Canvas).
+        //  // This rotates the 2nd Canvas, SO I NEED TO COMMENT THIS OUT TO ELIMINATE THIS SNIPPET TO PREVENT THAT BUG.
+        //  if (eventData.button == PointerEventData.InputButton.Left)
+        //  {
+        //      transform.Rotate(Vector3.up, -eventData.delta.x, Space.World);
+        //      transform.Rotate(Vector3.right, eventData.delta.y, Space.World);
+        //  }
     }
 
 }
