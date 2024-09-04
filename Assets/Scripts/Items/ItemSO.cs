@@ -11,6 +11,8 @@ public class ItemSO : ScriptableObject
 {
 
     public Sprite sprite;
+
+    // This makes me able to assign a 3D Game Object Prefab to the Scriptable Object.
     public Transform prefab;
 
 }

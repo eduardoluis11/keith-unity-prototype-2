@@ -41,6 +41,11 @@ public class Item : ScriptableObject
         // Activate later?
         Inventory.instance.Remove(this);
 
+        // This will create a generic cube at the position (1000, 1000, 1002) when I click on an item in my inventory.
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = new Vector3(1000, 1000, 1002);
+        // End of the code to create a generic cube at the position (1000, 1000, 1002).
+
         //        // Assuming the item has a reference to its Transform
         //        Transform itemTransform = this.transform;
         //        itemTransform.position = new Vector3(1000, 1000, 1000);
