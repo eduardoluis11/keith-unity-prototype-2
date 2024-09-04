@@ -1,0 +1,19 @@
+Modify this snippet so that, instead of removing the item from the inventory, it changes the position of the item to the position (1000, 1000, 1000).
+
+
+**Plan:**
+1. Modify the `RemoveFromInventory` method to change the item's position to (1000, 1000, 1000) instead of removing it from the inventory.
+2. Ensure the item has a reference to its `Transform` to change its position.
+
+```csharp
+public void RemoveFromInventory()
+{
+    // Assuming the item has a reference to its Transform
+    Transform itemTransform = this.transform;
+    itemTransform.position = new Vector3(1000, 1000, 1000);
+}
+```
+
+====================================================================================================
+
+

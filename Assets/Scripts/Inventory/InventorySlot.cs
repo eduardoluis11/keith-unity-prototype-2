@@ -34,6 +34,11 @@ public class InventorySlot : MonoBehaviour
     public void OnRemoveButton()
     {
         Inventory.instance.Remove(item);
+
+        // // Apparently, by sending the item's Transform to the RemoveFromInventory method, I will be able to make the
+        // // item to be rendered at the position (1000, 1000, 1000).
+        // // THIS MAY NOT WORK, SO I MAY DELETE THIS LATER.
+        // item.RemoveFromInventory(transform);
     }
 
     public void UseItem()

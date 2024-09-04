@@ -7,6 +7,12 @@ inventory UI.
 
 I WILL MODIFY THIS CODE SO THAT, once I click on an item, that item will be rendered at the position (1000, 1000, 1000).
 
+Plan:
+1) Modify the RemoveFromInventory method to change the item's position to (1000, 1000, 1000) instead of removing it from
+the inventory.
+
+2) Ensure the item has a reference to its Transform to change its position.
+
 Source of most of this code: Brackeys from https://youtu.be/HQNl3Ff2Lpo?si=71u8hLxbiQmP9R6h , https://youtu.be/YLhj7SfaxSE?si=zEufI5F7lrAOg6kD .
 */
 
@@ -28,8 +34,19 @@ public class Item : ScriptableObject
 
     // This will remove the item from the inventory when the player clicks on it. 
     // I WILL MODIFY THIS SO THAT the item will be rendered at the position (1000, 1000, 1000) instead of being removed from the inventory.
-    public void RemoveFromInventory ()
+   public void RemoveFromInventory ()
+    // public void RemoveFromInventory(Transform itemTransform)    // THIS MAY NOT WORK, SO DELETE LATER
     {
+        // This removes the item from the inventory.
+        // Activate later?
         Inventory.instance.Remove(this);
+
+        //        // Assuming the item has a reference to its Transform
+        //        Transform itemTransform = this.transform;
+        //        itemTransform.position = new Vector3(1000, 1000, 1000);
+
+        //     // THIS MAY NOT WORK, SO DELETE LATER.
+        //    // This is supposed to make the item to be rendered at the position (1000, 1000, 1000).
+        //     itemTransform.position = new Vector3(1000, 1000, 1000);
     }
 }
