@@ -4,6 +4,11 @@ using UnityEngine;
 
 /* Script for handling equipment items.
 
+This will make it so that, if I click on an item in my inventory, it will be equipped to the player, and removed from the 
+inventory UI.
+
+I WILL MODIFY THIS CODE SO THAT, once I click on an item, that item will be rendered at the position (1000, 1000, 1000).
+
 Source of most of this code: Brackeys from https://youtu.be/d9oLS5hy0zU?si=80WafnTJLHsbbReg
 
 */
@@ -20,7 +25,8 @@ public class Equipment : Item
     public override void Use()
     {
         base.Use();
-
+        EquipmentManager.instance.Equip(this);
+        RemoveFromInventory();
     }
 
 }
