@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/AnthemInspectorViewer.unity
+    guid: bd5c86a592526db4c8fa13903699e578
+  - enabled: 1
+    path: Assets/Scenes/AtlasShruggedInspectorViewer.unity
+    guid: dd1f417eb434fa74693b5f2779decbc4
+  - enabled: 1
+    path: Assets/Scenes/TheFountainheadInspectorViewer.unity
+    guid: 86304b38fc0f2ef489ab5c4de3289867
+  - enabled: 1
+    path: Assets/Scenes/WeTheLivingInspectorViewer.unity
+    guid: c16d9cec53c4ff04ba7c90060269ba79
   m_configObjects: {}

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// This will let me change scenes
+using UnityEngine.SceneManagement;
+
 /* This will handle the interactions with items in general (such as the 4 books for the puzzle).
 
 This will make it so that, if I click on an item in my inventory, it will be equipped to the player, and removed from the 
@@ -45,11 +48,16 @@ public class Item : ScriptableObject
         // Activate later?
         Inventory.instance.Remove(this);
 
+
         // This will create a generic cube at the position (1000, 1000, 1002) when I click on an item in my inventory.
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         // cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         cube.transform.position = new Vector3(1000, 1000, 1002);
         // End of the code to create a generic cube at the position (1000, 1000, 1002).
+
+        // For the time being, let's change to the "We the living" scene when the player clicks on any item
+        // in the inventory.
+        SceneManager.LoadScene("WeTheLivingInspectorViewer");
 
         //        // Assuming the item has a reference to its Transform
         //        Transform itemTransform = this.transform;

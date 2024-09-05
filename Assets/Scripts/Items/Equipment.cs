@@ -38,6 +38,9 @@ public class Equipment : Item
     public int armorModifier;
     public int damageModifier;
 
+    // Does this let me use an item when I click on it? If so, I will modify this to change the scene to
+    // the corresponding scene for selected books (i.e: if you choose "We the living", you will go to the "We the
+    // living" scene).
     public override void Use()
     {
         base.Use();
