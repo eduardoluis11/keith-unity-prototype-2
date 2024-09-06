@@ -50,4 +50,13 @@ public class Equipment : Item
 
 }
 
-public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet }
+/* Instead of using ‘head’, ‘chest’, ‘weapon’, etc., to indicate which part of the body an item can be equipped to, I
+will use ‘We the Living’, ‘Atlas Shrugged’, ‘Anthem’, and ‘The Fountainhead’. These are properties of the
+ScriptableObjects. So, if the item is marked as ‘Atlas Shrugged’, I will edit the code to send me to Atlas Shrugged.
+
+I will see which part of Brackeys’ code detects if it is ‘head’ or ‘weapon’ or any of those ‘Equipment slots’ in the
+code. That way, I will know how to edit the code to make it switch to the respective scene.
+
+*/
+public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet, AtlasShrugged, TheFountainhead, WeTheLiving, Anthem
+ }
