@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/3DModels/
+
+# Over 2000 files from Code Monkey, which I don't need.
+/Assets/Tutorial Packages/Simple Drag Code Monkey Package/_

@@ -11,3 +11,6 @@ This Unity project includes references to the following novels by Ayn Rand: "We 
 - The use of the titles and author's name is purely for non-commercial, educational, and personal use.
 - If requested by the owner of the Ayn Rand estate, I am willing to take down this project.
 
+### References and Sources
+
+1) Code Monkey. (2019, November 15). Simple Drag and Drop. Unity Code Monkey. https://unitycodemonkey.com/video.php?v=BGr-7GZJNXg .
