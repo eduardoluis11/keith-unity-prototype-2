@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/WeTheLivingInspectorViewer.unity
     guid: c16d9cec53c4ff04ba7c90060269ba79
+  - enabled: 1
+    path: Assets/Scenes/PuzzleWallScene.unity
+    guid: 055656ebc72658a4291b0755ffdddffd
   m_configObjects: {}
