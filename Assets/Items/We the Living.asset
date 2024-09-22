@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: We the Living
   m_EditorClassIdentifier: 
   name: We the Living
-  icon: {fileID: 21300000, guid: eefd81f7db2fd7e4ca3f516441b12558, type: 3}
+  icon: {fileID: 21300000, guid: 135c537d256a6784da99e1a99fcdf2c3, type: 3}
   isDefaultItem: 0
   equipSlot: 3
   prefab: {fileID: 3743390532949061076, guid: e1b83c794935b8a4d95b66971160f2ac, type: 3}

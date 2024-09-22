@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: The Fountainhead
   m_EditorClassIdentifier: 
   name: The Fountainhead
-  icon: {fileID: 21300000, guid: eefd81f7db2fd7e4ca3f516441b12558, type: 3}
+  icon: {fileID: 21300000, guid: 4721b6c2b89007846a9ef65c9ad6cc09, type: 3}
   isDefaultItem: 0
   equipSlot: 3
   prefab: {fileID: 3743390532949061076, guid: e1b83c794935b8a4d95b66971160f2ac, type: 3}
