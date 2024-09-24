@@ -818,6 +818,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 483121513}
+  - component: {fileID: 483121514}
   m_Layer: 0
   m_Name: AnthemContainer
   m_TagString: Untagged
@@ -846,6 +847,18 @@ RectTransform:
   m_AnchoredPosition: {x: -82, y: -121}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &483121514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483121512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8963c4a22165d4fb1059770a108e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525155181
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745064779}
+  - component: {fileID: 745064780}
   m_Layer: 0
   m_Name: AtlasShruggedContainer
   m_TagString: Untagged
@@ -1281,6 +1295,18 @@ RectTransform:
   m_AnchoredPosition: {x: 498, y: -135}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &745064780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745064778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8963c4a22165d4fb1059770a108e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &780186271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,6 +1926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1063452521}
+  - component: {fileID: 1063452522}
   m_Layer: 0
   m_Name: WeTheLivingContainer
   m_TagString: Untagged
@@ -1928,6 +1955,18 @@ RectTransform:
   m_AnchoredPosition: {x: -364, y: -121}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1063452522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063452520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8963c4a22165d4fb1059770a108e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065981916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,6 +2821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671452060}
+  - component: {fileID: 1671452061}
   m_Layer: 0
   m_Name: TheFountainheadContainer
   m_TagString: Untagged
@@ -2810,6 +2850,18 @@ RectTransform:
   m_AnchoredPosition: {x: 184, y: -130}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1671452061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671452059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8963c4a22165d4fb1059770a108e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1797793837
 GameObject:
   m_ObjectHideFlags: 0

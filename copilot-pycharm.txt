@@ -88,3 +88,70 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
 ```
 
 ====================================================================================================
+
+Thanks! Now, both the item sprite Game Object (that is, the potion sprite Game Object) and the Slot sprite Game Object are contained within an Empty Game Object which acts as a container. Well, create me a new script, which I guess I'll attach to the Empty game object container, that detects which item sprite game object has been attached to which slot sprite game object. For instance, if the sprite game object is called "potion", and if you drag and attach it to the "potion slot" game object, print a debugging message that says "You've attached the Potion into the Potion Slot."
+
+
+To achieve this, you can create a new script that will be attached to the Empty GameObject container. This script will listen for the `OnDrop` event from the `ItemSlot` script and print a debugging message based on the names of the item sprite and slot sprite GameObjects.
+
+Here is the new script:
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ItemSlotManager : MonoBehaviour
+{
+    // This method will be called by the ItemSlot script when an item is dropped
+    public void OnItemDropped(GameObject item, GameObject slot)
+    {
+        if (item.name == "potion" && slot.name == "potion slot")
+        {
+            Debug.Log("You've attached the Potion into the Potion Slot.");
+        }
+        else
+        {
+            Debug.Log($"You've attached the {item.name} into the {slot.name}.");
+        }
+    }
+}
+```
+
+Next, modify the `ItemSlot` script to call the `OnItemDropped` method from the `ItemSlotManager` script:
+
+```csharp
+public class ItemSlot : MonoBehaviour, IDropHandler
+{
+    private ItemSlotManager itemSlotManager;
+
+    private void Start()
+    {
+        // Find the ItemSlotManager script in the parent GameObject
+        itemSlotManager = GetComponentInParent<ItemSlotManager>();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("OnDrop");
+        if (eventData.pointerDrag != null)
+        {
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+            // Print a message when an item is attached to the slot, including the GameObject name
+            Debug.Log("Item attached to the slot: " + gameObject.name);
+
+            // Call the OnItemDropped method from the ItemSlotManager script
+            if (itemSlotManager != null)
+            {
+                itemSlotManager.OnItemDropped(eventData.pointerDrag, gameObject);
+            }
+        }
+    }
+}
+```
+
+Attach the `ItemSlotManager` script to the Empty GameObject container. This setup will allow the `ItemSlot` script to notify the `ItemSlotManager` script whenever an item is dropped into a slot, and the `ItemSlotManager` script will print the appropriate debugging message.
+
+====================================================================================================

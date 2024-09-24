@@ -59,8 +59,30 @@ statement inside the if block where the item is attached.
 
 You can print the GameObject of the slot sprite that contains this script by using gameObject.name within the OnDrop
 method.
+
+Now, both the item sprite Game Object (that is, the potion sprite Game Object) and the Slot sprite Game Object are
+contained within an Empty Game Object which acts as a container. Well, create me a new script, which I guess I'll
+attach to the Empty game object container, that detects which item sprite game object has been attached to which slot
+sprite game object. For instance, if the sprite game object is called "potion", and if you drag and attach it to the
+"potion slot" game object, print a debugging message that says "You've attached the Potion into the Potion Slot."
+
+To achieve this, you can create a new script that will be attached to the Empty GameObject container. This script will
+listen for the OnDrop event from the ItemSlot script and print a debugging message based on the names of the item
+sprite and slot sprite GameObjects.
+
+Modify the ItemSlot script to call the OnItemDropped method from the ItemSlotManager script.
 */
 public class ItemSlot : MonoBehaviour, IDropHandler {
+
+    // Reference to the ItemSlotManager script, whic will be attached to the Container Game Object that will contain this slot sprite
+    private ItemSlotManager itemSlotManager;
+
+
+    private void Start()
+    {
+        // Find the ItemSlotManager script in the parent GameObject
+        itemSlotManager = GetComponentInParent<ItemSlotManager>();
+    }
 
     public void OnDrop(PointerEventData eventData) {
         Debug.Log("OnDrop");
@@ -71,6 +93,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
             //            Debug.Log("Item attached to the slot.");
             // Print a message when an item is attached to the slot, including the GameObject name
             Debug.Log("Item attached to the slot: " + gameObject.name);
+
+            // Call the OnItemDropped method / function from the ItemSlotManager.cs script
+            if (itemSlotManager != null)
+            {
+                itemSlotManager.OnItemDropped(eventData.pointerDrag, gameObject);
+            }
         }
     }
 
