@@ -65,4 +65,26 @@ public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet }
 
 ====================================================================================================
 
+This script handles the slot sprite of a drag-and-drop UI in which I can click and drg the sprite of an item (like a potion) to a slot sprite. This script is attached to the slot sprite. Well, is there a way to print the Game Object of the slot sprite that contains this script into the debuggging message in the selected snippet?
 
+
+Yes, you can print the GameObject of the slot sprite that contains this script by using `gameObject.name` within the `OnDrop` method. Here is the modified code:
+
+```csharp
+```csharp
+public class ItemSlot : MonoBehaviour, IDropHandler {
+
+    public void OnDrop(PointerEventData eventData) {
+        Debug.Log("OnDrop");
+        if (eventData.pointerDrag != null) {
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+            // Print a message when an item is attached to the slot, including the GameObject name
+            Debug.Log("Item attached to the slot: " + gameObject.name);
+        }
+    }
+
+}
+```
+
+====================================================================================================
