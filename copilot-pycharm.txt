@@ -155,3 +155,155 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 Attach the `ItemSlotManager` script to the Empty GameObject container. This setup will allow the `ItemSlot` script to notify the `ItemSlotManager` script whenever an item is dropped into a slot, and the `ItemSlotManager` script will print the appropriate debugging message.
 
 ====================================================================================================
+
+Awesome! That worked! Now, I made 4 book sprites, and 4 slots. The player will have to put the 4 books in the ocrrect order in each of the 4 slots. If the user attaches each book sprite into each of the 4 slots, they will have to press a button to check if the the books are placed in the correct order. If they do, I will print them a success debugging message in the Unity Editor. Well, I'll guess that I'll have to create the button as a new UI element in the Unity Editor. Well, tell me an algorithm to create a script or modify one of my scripts so that I can attach it to the new "submit" button so that, if the player clicks on it, the game checks from the ItemSlotManager.cs script if each book has been attached to their corresponding slot in the correct order (I will put a series of "if" statements inside of the ItemSlotManager.cs script to check the order in which each book was placed into each slot). If the "We the living" book is placed into the "We the living slot" game object, if the "Anthem" book is placed into the "Anthem slot", if "The fountainhead" book is placed into the "the fountainhead slot", and if the "atlas shrugged" book is attached to the "atlas shrugged slot", and then the player hits on submit, a success message should be printed into the Unity console editor. Otherwise, an error debugging message should be printed. Tell me an algoritm on how to do this in unity.
+
+
+To achieve this, you can follow these steps:
+
+1. **Create a Submit Button in the Unity Editor:**
+   - In the Unity Editor, create a new UI Button and name it "SubmitButton".
+   - Attach a new script to this button to handle the click event.
+
+2. **Modify the `ItemSlotManager` Script:**
+   - Add a method to check if the books are placed in the correct order.
+   - Add a method to be called when the Submit button is clicked.
+
+3. **Update the `ItemSlot` Script:**
+   - Ensure it keeps track of the items placed in the slots.
+
+Here is the algorithm and the corresponding code:
+
+### Algorithm
+
+1. **Create a Submit Button:**
+   - Create a new UI Button in the Unity Editor and name it "SubmitButton".
+   - Attach a new script to handle the button click event.
+
+2. **Modify `ItemSlotManager` Script:**
+   - Add a method `CheckBooksOrder` to verify if the books are in the correct order.
+   - Add a method `OnSubmitButtonClicked` to be called when the Submit button is clicked.
+
+3. **Update `ItemSlot` Script:**
+   - Ensure it keeps track of the items placed in the slots.
+
+### Code Implementation
+
+#### `ItemSlotManager.cs`
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ItemSlotManager : MonoBehaviour
+{
+    private Dictionary<string, string> bookSlotMapping = new Dictionary<string, string>();
+
+    // This method will be called by the ItemSlot script when an item is dropped
+    public void OnItemDropped(GameObject item, GameObject slot)
+    {
+        bookSlotMapping[slot.name] = item.name;
+    }
+
+    // Method to check if the books are in the correct order
+    public bool CheckBooksOrder()
+    {
+        return bookSlotMapping.ContainsKey("We the living slot") && bookSlotMapping["We the living slot"] == "We the living" &&
+               bookSlotMapping.ContainsKey("Anthem slot") && bookSlotMapping["Anthem slot"] == "Anthem" &&
+               bookSlotMapping.ContainsKey("The fountainhead slot") && bookSlotMapping["The fountainhead slot"] == "The fountainhead" &&
+               bookSlotMapping.ContainsKey("Atlas shrugged slot") && bookSlotMapping["Atlas shrugged slot"] == "Atlas shrugged";
+    }
+
+    // Method to be called when the Submit button is clicked
+    public void OnSubmitButtonClicked()
+    {
+        if (CheckBooksOrder())
+        {
+            Debug.Log("Success! All books are in the correct order.");
+        }
+        else
+        {
+            Debug.Log("Error! The books are not in the correct order.");
+        }
+    }
+}
+```
+
+#### `ItemSlot.cs`
+
+```csharp
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ItemSlot : MonoBehaviour, IDropHandler
+{
+    private ItemSlotManager itemSlotManager;
+
+    private void Start()
+    {
+        // Find the ItemSlotManager script in the parent GameObject
+        itemSlotManager = GetComponentInParent<ItemSlotManager>();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("OnDrop");
+        if (eventData.pointerDrag != null)
+        {
+            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+
+            // Print a message when an item is attached to the slot, including the GameObject name
+            Debug.Log("Item attached to the slot: " + gameObject.name);
+
+            // Call the OnItemDropped method from the ItemSlotManager script
+            if (itemSlotManager != null)
+            {
+                itemSlotManager.OnItemDropped(eventData.pointerDrag, gameObject);
+            }
+        }
+    }
+}
+```
+
+#### `SubmitButtonHandler.cs`
+
+```csharp
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SubmitButtonHandler : MonoBehaviour
+{
+    public ItemSlotManager itemSlotManager;
+
+    private void Start()
+    {
+        // Get the Button component and add a listener to the click event
+        GetComponent<Button>().onClick.AddListener(OnSubmitButtonClicked);
+    }
+
+    private void OnSubmitButtonClicked()
+    {
+        if (itemSlotManager != null)
+        {
+            itemSlotManager.OnSubmitButtonClicked();
+        }
+    }
+}
+```
+
+### Steps to Attach Scripts in Unity Editor
+
+1. **Attach `ItemSlotManager` Script:**
+   - Attach the `ItemSlotManager` script to the Empty GameObject container.
+
+2. **Attach `ItemSlot` Script:**
+   - Ensure the `ItemSlot` script is attached to each slot GameObject.
+
+3. **Attach `SubmitButtonHandler` Script:**
+   - Attach the `SubmitButtonHandler` script to the Submit button.
+   - Drag the Empty GameObject container (with the `ItemSlotManager` script) to the `itemSlotManager` field in the `SubmitButtonHandler` script in the Inspector.
+
+This setup will allow you to check if the books are placed in the correct order when the Submit button is clicked.
+
+====================================================================================================
