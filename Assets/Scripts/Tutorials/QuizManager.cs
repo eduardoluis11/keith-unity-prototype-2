@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // This lets us use TextMeshPro to display text
+
 
 public class QuizManager : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
 
-    public TextMesh QuestionTxt;
+    public TMP_Text QuestionTxt;
 
     private void Start()
     {
@@ -28,7 +30,7 @@ public class QuizManager : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TextMesh>().text = QnA[currentQuestion].Answers[i];
+            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestion].Answers[i];
 
             if(QnA[currentQuestion].CorrectAnswer == i + 1)
             {

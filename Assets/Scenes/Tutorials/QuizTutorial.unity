@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 590165230}
   - component: {fileID: 590165229}
   - component: {fileID: 590165228}
+  - component: {fileID: 590165231}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -337,6 +338,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590165226}
   m_CullTransparentMesh: 1
+--- !u!114 &590165231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590165226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c763ea3d8876b428f7122f5eda3e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1671202230}
 --- !u!1 &687766786
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +880,7 @@ GameObject:
   - component: {fileID: 1231435538}
   - component: {fileID: 1231435537}
   - component: {fileID: 1231435536}
+  - component: {fileID: 1231435539}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -974,6 +990,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231435534}
   m_CullTransparentMesh: 1
+--- !u!114 &1231435539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231435534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c763ea3d8876b428f7122f5eda3e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1671202230}
 --- !u!1 &1389002756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,6 +1150,7 @@ GameObject:
   - component: {fileID: 1591777323}
   - component: {fileID: 1591777322}
   - component: {fileID: 1591777321}
+  - component: {fileID: 1591777324}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1229,6 +1260,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591777319}
   m_CullTransparentMesh: 1
+--- !u!114 &1591777324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591777319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c763ea3d8876b428f7122f5eda3e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1671202230}
 --- !u!1 &1671202228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671202229}
+  - component: {fileID: 1671202230}
   m_Layer: 0
   m_Name: QuizManager
   m_TagString: Untagged
@@ -1260,6 +1306,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671202230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671202228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47eeed0b26dd68c4a97e3f7a8134945a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QnA:
+  - Question: Name of the Channel?
+    Answers:
+    - Brackeys
+    - The Game Guy
+    - Unity 3d
+    - Jason
+    CorrectAnswer: 2
+  - Question: What do I do?
+    Answers:
+    - Develop Games
+    - Nothing at all
+    - Watch Netflix
+    - Sleep
+    CorrectAnswer: 1
+  - Question: Why am I here?
+    Answers:
+    - To learn
+    - I Don't Know
+    - Passing Time
+    - Good Question
+    CorrectAnswer: 1
+  options:
+  - {fileID: 590165226}
+  - {fileID: 1231435534}
+  - {fileID: 1591777319}
+  - {fileID: 2118109294}
+  currentQuestion: 0
+  QuestionTxt: {fileID: 1389002758}
 --- !u!1 &1700049549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1797,7 @@ GameObject:
   - component: {fileID: 2118109298}
   - component: {fileID: 2118109297}
   - component: {fileID: 2118109296}
+  - component: {fileID: 2118109299}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -1819,6 +1907,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118109294}
   m_CullTransparentMesh: 1
+--- !u!114 &2118109299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118109294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c763ea3d8876b428f7122f5eda3e83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
+  quizManager: {fileID: 1671202230}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
