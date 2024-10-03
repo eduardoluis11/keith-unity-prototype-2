@@ -30,6 +30,9 @@ public class QuizManager : MonoBehaviour
     int totalQuestions = 0;
     public int score;
 
+    private int questionIndex = 0; // Add this field to keep track of the current question index for the generateQuestion() method
+
+
     private void Start()
     {
         totalQuestions = QnA.Count;
@@ -79,14 +82,52 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /* This generates the questions.
+
+    Right now, this generates the questions at a random order. I DON'T WANT THAT. I want the questions to be shown at a fixed order.
+
+    To modify the code so that the questions are displayed in a fixed order, you can iterate through the questions sequentially instead 
+    of selecting them randomly. You can use an index to keep track of the current question and increment it each time a new question is 
+    generated.
+
+    Explanation:
+    Add a Field:
+
+    Added a private field questionIndex to keep track of the current question index.
+    Sequential Question Selection:
+
+    Instead of selecting a random question, the code now uses questionIndex to select the current question.
+    If questionIndex exceeds the number of questions, it is reset to 0 to start from the beginning.
+    Increment the Index:
+
+    After setting the question text and answers, the questionIndex is incremented for the next question.
+    This will ensure that the questions are displayed in a fixed order each time the player enters the scene.
+    */
     void generateQuestion()
     {
         if(QnA.Count > 0)
         {
-            currentQuestion = Random.Range(0, QnA.Count);
 
-            QuestionTxt.text = QnA[currentQuestion].Question;
+            if (questionIndex >= QnA.Count)
+            {
+                questionIndex = 0; // Reset the index if it exceeds the number of questions
+            }
+
+            QuestionTxt.text = QnA[questionIndex].Question;
             SetAnswers();
+
+            //questionIndex++; // Increment the index for the next question. DON'T USE THIS, SINCE IT GENERATES A BUG.
+
+
+
+            
+            // currentQuestion = Random.Range(0, QnA.Count);
+
+            // QuestionTxt.text = QnA[currentQuestion].Question;
+            // SetAnswers();
+
+
+
         }
         else 
         {

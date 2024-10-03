@@ -185,3 +185,43 @@ Summary:
 Add a Transform Property: Add a Transform property to the Item class.
 Set the Transform Property: Ensure that the Transform property is set when the item is instantiated.
 By following these steps, you should be able to resolve the error and achieve the desired functionality of moving the item to a specific position instead of removing it from the inventory.
+
+
+==========================================================================================================
+
+To modify the code so that the questions are displayed in a fixed order, you can iterate through the questions sequentially instead of selecting them randomly. You can use an index to keep track of the current question and increment it each time a new question is generated.
+
+Here's the modified code:
+
+private int questionIndex = 0; // Add this field to keep track of the current question index
+
+void generateQuestion()
+{
+    if (QnA.Count > 0)
+    {
+        if (questionIndex >= QnA.Count)
+        {
+            questionIndex = 0; // Reset the index if it exceeds the number of questions
+        }
+
+        QuestionTxt.text = QnA[questionIndex].Question;
+        SetAnswers();
+
+        questionIndex++; // Increment the index for the next question
+    }
+}
+
+Explanation:
+Add a Field:
+
+Added a private field questionIndex to keep track of the current question index.
+Sequential Question Selection:
+
+Instead of selecting a random question, the code now uses questionIndex to select the current question.
+If questionIndex exceeds the number of questions, it is reset to 0 to start from the beginning.
+Increment the Index:
+
+After setting the question text and answers, the questionIndex is incremented for the next question.
+This will ensure that the questions are displayed in a fixed order each time the player enters the scene.
+
+=========================================================================
