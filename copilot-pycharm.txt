@@ -307,3 +307,31 @@ public class SubmitButtonHandler : MonoBehaviour
 This setup will allow you to check if the books are placed in the correct order when the Submit button is clicked.
 
 ====================================================================================================
+
+Thanks. Now, this method displays the final score in a quiz game. That is, if the player answer all the questions correctly, this will print "4/4" on the game; whereas, if they have 1 answer wrong, this will print "3/4"; and so on and so forth. Well, that quiz is just a puzzle within my game, and I want to modify this snippet so that, if the player answers all 4 questions correctly (or all answer correctly, since I didn't hard-code the number of questions in my code), show them a message that says "Congrats! You've beaten the puzzle". Otherwise, if they answered at least 1 question wrongly, I will display them the message "Sorry, that answer is incorrect. Try again." So, modify this snippet to display these messages depending on how many aanswers the player got correctly.
+
+
+To modify the `GameOver` method to display a success message if all questions are answered correctly and an error message if at least one question is answered incorrectly, you can use a conditional statement to check the player's score against the total number of questions.
+
+Here is the modified `GameOver` method:
+
+```csharp
+void GameOver()
+{
+    Quizpanel.SetActive(false);
+    GoPanel.SetActive(true);
+
+    if (score == totalQuestions)
+    {
+        ScoreTxt.text = "Congrats! You've beaten the puzzle.";
+    }
+    else
+    {
+        ScoreTxt.text = "Sorry, that answer is incorrect. Try again.";
+    }
+}
+```
+
+This code checks if the player's score is equal to the total number of questions. If they match, it displays the success message. Otherwise, it displays the error message.
+
+====================================================================================================

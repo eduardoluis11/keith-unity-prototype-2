@@ -11,7 +11,7 @@ https://youtu.be/POUemIGCyr0?si=9CaczUgu_pd0FgyS
 
 /* This script lets me create all the questions and their respective answers for the quiz for the puzzle wall scene.
 
-This is one of the 3 scripts tthat allowed me to create the quiz puzzle for the puzzle wall scene.
+This is one of the 3 scripts that allowed me to create the quiz puzzle for the puzzle wall scene.
 */
 
 public class QuizManager : MonoBehaviour
@@ -30,7 +30,8 @@ public class QuizManager : MonoBehaviour
     int totalQuestions = 0;
     public int score;
 
-    private int questionIndex = 0; // Add this field to keep track of the current question index for the generateQuestion() method
+    // Add this field to keep track of the current question index for the generateQuestion() method
+    private int questionIndex = 0;
 
 
     private void Start()
@@ -46,11 +47,42 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    /* Once the quiz ends (when you answer all the questions, this will display the final result (how many questions
+    you answered correctly) and the total number of questions.
+
+    Well, there are 2 things that I want to fix here: 1) I don't want to show the player how many answers he got
+    correctly. Otherwise, they could just guess the solution to the puzzle (they could guess the correct order of the
+    books easily). 2) I want the player to only beat the puzzle if they get all 4 answers correctly. If they
+    have ate last 1 answer wrong, I will display them an error message telling them that they didn't beat the puzzle,
+    and I will ask them to try again.
+
+    And it's only this function / method: I may need to also edit the correct(), wrong(), and SetAnswers "functions"
+    to make this happen.
+
+    To modify the `GameOver` method to display a success message if all questions are answered correctly and an error
+    message if at least one question is answered incorrectly, you can use a conditional statement to check the player's
+    score against the total number of questions.
+
+    This code checks if the player's score is equal to the total number of questions. If they match, it displays the
+    success message. Otherwise, it displays the error message.
+    */
     void GameOver()
     {
         Quizpanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
+
+        // This will display a message depending on the score.
+        // The player will only beat the puzzle if they get all the answers correctly.
+        if (score == totalQuestions)
+        {
+            ScoreTxt.text = "Congrats! You've beaten the puzzle.";
+        }
+        // If the player gets at least 1 answer wrong, they will not beat the puzzle.
+        else
+        {
+            ScoreTxt.text = "Sorry, the books are not in the correct chronological order. Please, try again.";
+        }
     }
 
     public void correct()
