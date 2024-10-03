@@ -76,7 +76,7 @@ public class QuizManager : MonoBehaviour
         // The player will only beat the puzzle if they get all the answers correctly.
         if (score == totalQuestions)
         {
-            ScoreTxt.text = "Congrats! You've beaten the puzzle.";
+            ScoreTxt.text = "Congrats! You've beaten the puzzle!";
         }
         // If the player gets at least 1 answer wrong, they will not beat the puzzle.
         else
