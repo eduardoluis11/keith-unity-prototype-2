@@ -4,6 +4,15 @@ using UnityEngine;
 using TMPro; // This lets us use TextMeshPro to display text
 using UnityEngine.SceneManagement; // This lets us use SceneManager to change scenes
 
+/* Source of most of this code: The Game Guy from https://youtu.be/G9QDFB2RQGA?si=_Psb92iJnkPlg55W , and from 
+https://youtu.be/POUemIGCyr0?si=9CaczUgu_pd0FgyS
+
+*/
+
+/* This script lets me create all the questions and their respective answers for the quiz for the puzzle wall scene.
+
+This is one of the 3 scripts tthat allowed me to create the quiz puzzle for the puzzle wall scene.
+*/
 
 public class QuizManager : MonoBehaviour
 {
