@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // This lets us use TextMeshPro to display text
+using UnityEngine.SceneManagement; // This lets us use SceneManager to change scenes
 
 
 public class QuizManager : MonoBehaviour
@@ -11,16 +12,46 @@ public class QuizManager : MonoBehaviour
     public GameObject[] options;
     public int currentQuestion;
 
+    public GameObject Quizpanel;
+    public GameObject GoPanel;
+
     public TMP_Text QuestionTxt;
+    public TMP_Text ScoreTxt;
+
+    int totalQuestions = 0;
+    public int score;
 
     private void Start()
     {
+        totalQuestions = QnA.Count;
+        GoPanel.SetActive(false);
         generateQuestion();
         
     }
 
+    public void retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void GameOver()
+    {
+        Quizpanel.SetActive(false);
+        GoPanel.SetActive(true);
+        ScoreTxt.text = score + "/" + totalQuestions;
+    }
+
     public void correct()
     {
+        // When you answer correctly
+        score++;
+        QnA.RemoveAt(currentQuestion);
+        generateQuestion();
+    }
+
+    public void wrong()
+    {
+        // When you answer wrong
         QnA.RemoveAt(currentQuestion);
         generateQuestion();
     }
@@ -51,6 +82,7 @@ public class QuizManager : MonoBehaviour
         else 
         {
             Debug.Log("Out of Questions");
+            GameOver();
         }
 
 
