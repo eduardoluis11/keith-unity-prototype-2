@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzzleWallScene.unity
     guid: c4dcb93b811fc9045be24e638353ed16
+  - enabled: 1
+    path: Assets/Scenes/QuizPuzzleWall.unity
+    guid: a6ab3f654cfbf2d499a714e5bab85dc8
   m_configObjects: {}

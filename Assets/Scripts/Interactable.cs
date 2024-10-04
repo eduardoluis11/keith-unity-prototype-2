@@ -43,6 +43,9 @@ public class Interactable : MonoBehaviour
     1) Add an if statement to check if the object's name is "Puzzle Wall".
 
     2) Use SceneManager.LoadScene to change to the new scene.
+
+    Instead of the puzzle wall with the drag and drop features, I will intead use the Quiz Game Scene as the Puzzle Wall. That is, you will have to
+    answer questions in a Quiz in order to solve the puzzle.
     */
     void Update ()
     {
@@ -54,7 +57,7 @@ public class Interactable : MonoBehaviour
                 // If the object's name is "Puzzle Wall", then change to the Puzzle Wall Scene.
                 if (transform.name == "Puzzle Wall")
                 {
-                    SceneManager.LoadScene("PuzzleWallScene");
+                    SceneManager.LoadScene("QuizPuzzleWall");
                 }
 
                 // If you're interacting with any other object, I will execute the Interact() method.
