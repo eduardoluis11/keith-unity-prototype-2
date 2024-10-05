@@ -55,9 +55,20 @@ public class QuizManager : MonoBehaviour
         
     }
 
+    /* This will reload the Quiz Puzzle so that you can try to solve the puzzle once again from scratch (from the very first question) when 
+    you click on the "Retry" button in the "Game Over Panel" when you answer the quiz wrong and lose. 
+    */
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /* This will confirm that you won the Quiz Puzzle, and will send the player from the Quiz Scene to the Main scene, and unlock the door when 
+    you click on the "Ok" button in the "Victory Quiz Panel" when you answer the quiz correctly and win.
+    */
+    public void confirmVictoryAndUnlockDoorButton()
+    {
+        SceneManager.LoadScene("Main");
     }
 
     /* Once the quiz ends (when you answer all the questions, this will display the final result (how many questions
