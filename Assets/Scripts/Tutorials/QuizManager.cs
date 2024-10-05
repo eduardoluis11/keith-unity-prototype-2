@@ -11,7 +11,15 @@ https://youtu.be/POUemIGCyr0?si=9CaczUgu_pd0FgyS
 
 /* This script lets me create all the questions and their respective answers for the quiz for the puzzle wall scene.
 
+This script pretty much handles all of the gameplay mechanics for the Quiz Puzzle.
+
 This is one of the 3 scripts that allowed me to create the quiz puzzle for the puzzle wall scene.
+
+You will be able to attach Game Objects to this script, such as the "Quiz Panel" and the "Go Panel". Well, I will modify 
+this script so that you can also attach a new panel called "Victory Quiz Panel" to this script.
+
+The "Go Panel" will show the "Retry" button and a message saying "you lost. Try again." if you lose the quiz. Meanwhile, the "Victory Quiz Panel"
+will show the "Ok" button and a message saying "you won. Good job!" if you win the quiz.
 */
 
 public class QuizManager : MonoBehaviour
@@ -22,7 +30,12 @@ public class QuizManager : MonoBehaviour
     public int currentQuestion;
 
     public GameObject Quizpanel;
+
+    // Game Over (or "Go") Panel. This will make it so that you can attach the "Go Panel" Game Object to the script.
     public GameObject GoPanel;
+
+    // Victory Quiz Panel. This will make it so that you can attach the "Victory Quiz Panel" Game Object to the script.
+    public GameObject VictoryQuizPanel;
 
     public TMP_Text QuestionTxt;
     public TMP_Text ScoreTxt;
@@ -65,22 +78,40 @@ public class QuizManager : MonoBehaviour
 
     This code checks if the player's score is equal to the total number of questions. If they match, it displays the
     success message. Otherwise, it displays the error message.
+
+    I think that "Go Panel" means the "Game Over Panel", which should display the message that says if you won or not, as well as the "Retry"
+    button. 
+
+    If that's the case, here's where I need to add a snippet that says that, if you lost the quiz, that the "Retry" button should show up. Meanwhile,
+    if you win the quiz, the "Ok" button should show up, whereas the "Retry" button should be invisible.
     */
     void GameOver()
     {
+
+        // This makes the Questions and the buttons with the answers to disappear
         Quizpanel.SetActive(false);
-        GoPanel.SetActive(true);
-        ScoreTxt.text = score + "/" + totalQuestions;
+
+
 
         // This will display a message depending on the score.
         // The player will only beat the puzzle if they get all the answers correctly.
         if (score == totalQuestions)
         {
-            ScoreTxt.text = "Congrats! You've beaten the puzzle!";
+
+            // This makes the Victory Quiz Panel appear (the one that displays the "Ok" button.)
+            VictoryQuizPanel.SetActive(true);
+
+            ScoreTxt.text = "Congrats! You've beaten the puzzle! The door has now been unlocked. Press 'Ok' to continue.";
         }
         // If the player gets at least 1 answer wrong, they will not beat the puzzle.
         else
         {
+            // This makes the Game Over Panel appear (the one that says if you won or not, as well as the "Retry" button)
+            GoPanel.SetActive(true);
+
+            // // This displays the total score. I WON'T NEED THIS FOR THE TIME BEING.
+            // ScoreTxt.text = score + "/" + totalQuestions;
+
             ScoreTxt.text = "Sorry, the books are not in the correct chronological order. Please, try again.";
         }
     }
